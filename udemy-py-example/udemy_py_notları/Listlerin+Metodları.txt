@@ -1,0 +1,172 @@
+		Listelerin Metotları
+
+
+1-)append()
+2-)extend()
+3-)insert()
+4-)remove()
+5-)reverse()
+6-)pop()
+
+******************************************************************************************
+1-)append()
+
+append kelimesi İngilizcede ‘eklemek, ilave etmek’ gibi anlamlara gelir. 
+append() metodunun görevi de kelime anlamıyla uyumludur. Bu metodu, 
+bir listeye öğe eklemek için kullanıyoruz. Mesela:
+
+
+
+liste = ["elma", "armut", "çilek"]
+liste.append("erik")
+
+
+
+
+
+
+
+liste = ["elma", "armut", "çilek"]
+liste = liste + ["erik"]
+print(liste)
+
+
+
+
+
+
+
+
+
+
+append() metodunun yalnızca tek bir parametre alabilir. 
+Yani bu metodu kullanarak bir listeye birden fazla öğe ekleyemezsiniz:
+
+
+liste = [1, 2, 3]
+liste.append(4, 5, 6)
+
+
+
+liste = [1, 2, 3]
+ for i in [4, 5, 6]:
+     liste.append(i)
+
+
+
+
+Bir listeye birden fazla öğe eklemek için aklınıza şöyle bir yöntem de gelmiş olabilir:
+
+>>> liste = [1, 2, 3]
+>>> liste.append([4, 5, 6])
+
+
+Ancak bu komutun çıktısı pek beklediğiniz gibi olmayabilir:
+
+******************************************************************************************
+2-)extend()
+
+extend kelimesi İngilizcede ‘genişletmek, yaymak’ gibi anlamlara gelir. İşte extend() 
+adlı metot da kelime anlamına uygun olarak listeleri ‘genişletir’.
+
+
+Şöyle bir düşündüğünüzde extend() metodunun append() metoduyla aynı işi yaptığını zannedebilirsiniz. 
+Ama aslında bu iki metot işleyiş olarak birbirinden çok farklıdır.
+
+
+
+append() de ;
+
+li1 = [1, 3, 4]
+li2 = [10, 11, 12]
+li1. append(li2)
+
+
+extend() ;
+
+li1 = [1, 3, 4]
+li2 = [10, 11, 12]
+li1. extend(li2)
+
+
+
+******************************************************************************************
+3-)insert()
+
+Bildiğiniz gibi, + işleci, append() ve extend() metotları öğeleri listenin sonuna ekliyor. 
+Peki biz bir öğeyi listenin sonuna değil de, liste içinde başka bir konuma eklemek istersek 
+ne yapacağız? İşte bunun için insert() adlı başka bir metottan yararlanacağız.
+
+
+
+>>> liste = ["elma", "armut", "çilek"]
+>>> liste.insert(0, "erik")
+>>> print(liste)
+
+******************************************************************************************
+4-)remove()
+
+Bu metot listeden öğe silmemizi sağlar.
+
+>>> liste = ["elma", "armut", "çilek"]
+>>> liste.remove("elma")
+
+
+******************************************************************************************
+5-)reverse()
+
+listeleri ters çevirmeye yarar.
+
+>>> liste = ["elma", "armut", "çilek"]
+>>> liste.reverse()
+
+
+******************************************************************************************
+6-)pop()
+
+Tıpkı remove() metodu gibi, bu metot da bir listeden öğe silmemizi sağlar:
+
+>>> liste = ["elma", "armut", "çilek"]
+>>> liste.pop()
+
+Ancak bu metot, remove() metodundan biraz farklı davranır. pop() metodunu kullanarak bir liste 
+öğesini sildiğimizde, silinen öğe ekrana basılacaktır.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

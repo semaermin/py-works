@@ -1,0 +1,267 @@
+				Listeler
+
+ listeler Python’daki veri tiplerinden biridir. Tıpkı karakter dizileri ve sayılar gibi...
+
+
+
+	--Liste Tanımlamak--
+
+
+isim = "fatih"   -> String (karakter dizisi)
+
+
+herhangi bir öğeyi karakter dizisi olarak tanımlayabilmek için yapmamız gereken tek şey o öğeyi tırnak içine almaktı.
+
+isimListesi = ["fatih" , "ali" , "mehmet"] -> Liste
+
+
+Gördüğünüz gibi, liste tanımlamak da son derece kolay. Bir liste elde etmek için, 
+öğeleri birbirinden virgülle ayırıp, bunların hepsini köşeli parantezler içine alıyoruz.
+
+type(isimListesi) 
+
+
+
+
+liste = ["Ahmet", "Mehmet", 23, 65, 3.2]
+
+
+
+
+
+
+
+Dahası, listelerin içinde başka listeler de bulunabilir:
+
+
+
+
+
+liste = ["Ali", "Veli", ["Ayşe", "Nazan", "Zeynep"], 34, 65, 33, 5.6]
+
+
+
+
+for öğe in liste:
+    print("{} adlı öğenin veri tipi: {}".format(öğe, type(öğe)))
+
+
+
+
+
+
+
+
+
+**********************************************************************************************************************
+
+
+sehir= "İstanbul Büyükşehir Belediyesi"
+
+sehir[0]
+
+
+sehir.split()
+
+
+
+
+diller = ["İngilizce", "Fransızca", "Türkçe", "İtalyanca", "İspanyolca"]
+len(diller)
+
+
+
+
+
+**********************************************************************************************************************
+
+
+1-)list() Fonksiyonu
+
+2-)Listelerin Öğelerine Erişmek
+
+3-)Listelerin Öğelerini Değiştirmek
+
+4-)Listeye Öğe Eklemek
+
+5-)Listeleri Birleştirmek
+
+6-)Listeden Öğe Çıkarmak	
+
+7-)Listeleri Silmek
+
+8-)Listeleri Kopyalamak
+
+
+
+
+**********************************************************************************************************************
+
+	list() Fonksiyonu
+
+
+
+
+
+Liste oluşturmak için öğeleri belirleyip bunları köşeli parantezler içine almamız yeterli oluyordu.
+Bu yöntemin dışında, liste oluşturmanın bir yöntemi daha bulunur
+
+
+isimler = "ahmet mehmet cem"
+
+isimler.split()
+
+
+
+list(range(10))
+
+isim="fatih sultan mehmet"
+
+liste = list(isim)
+
+print(liste)
+
+**********************************************************************************************************************
+
+2-)Listelerin Öğelerine Erişmek
+
+
+Tıpkı karakter dizilerinde olduğu gibi, listelerde de her öğenin bir sırası vardır
+
+dil="python"
+dil[0]
+
+meyveler = ["elma", "armut", "çilek", "kiraz"]
+meyveler[0]
+
+
+meyveler[0:2]
+
+
+
+
+
+meyveler = ["elma", "armut", "çilek", "kiraz"]
+
+for meyve in meyveler:
+    print(meyve)
+
+
+meyveler = ["elma", "armut", "çilek", "kiraz"]
+
+for öğe_sırası in range(len(meyveler)):
+    print("{}. {}".format(öğe_sırası, meyveler[öğe_sırası]))
+
+
+
+**********************************************************************************************************************
+
+3-)Listelerin Öğelerini Değiştirmek
+
+isim="fatih"
+isim="F"+isim[1:]
+
+
+
+
+ renkler = ["kırmızı", "sarı", "mavi", "yeşil", "beyaz"]
+
+renkler[0] = "siyah"
+
+
+
+liste = [1, 2, 3]
+liste[0:len(liste)] = 5, 6, 7
+
+**********************************************************************************************************************
+
+4-)Listeye Öğe Eklemek
+
+Listeler büyüyüp küçülebilen bir veri tipidir. Yani Python’da bir listeye istediğiniz kadar öğe ekleyebilirsiniz.
+Diyelim ki elimizde şöyle bir liste var:
+
+liste = [2, 4, 5, 7]
+
+liste + [8]
+
+Python’da + işareti kullanarak bir listeye öğe ekleyecekseniz, eklediğiniz öğenin de liste olması gerekiyor. 
+Mesela bir listeye doğrudan karakter dizilerini veya sayıları ekleyemezsiniz:
+
+liste + 8
+
+**********************************************************************************************************************
+
+5-)Listeleri Birleştirmek
+
+derlenen_diller = ["C", "C++", "C#", "Java"]
+yorumlanan_diller = ["Python", "Perl", "Ruby"]
+
+
+programlama_dilleri = derlenen_diller + yorumlanan_diller
+
+
+
+
+
+
+
+sayılar = 0
+notlar = []
+
+for i in range(10):
+    veri = int(input("{}. not: ".format(i+1)))
+    sayılar += veri
+    notlar += [veri]
+
+print("Girdiğiniz notlar: ", *notlar)
+print("Not ortalamanız: ", sayılar/10)
+
+
+**********************************************************************************************************************
+
+6-)Listeden Öğe Çıkarmak
+
+Bir listeden öğe silmek için del adlı ifadeden yararlanabilirsiniz. Örneğin:
+
+liste = [1, 5, 3, 2, 9]
+
+ del liste[-1]
+
+**********************************************************************************************************************
+
+7-)Listeleri Silmek
+
+Python’da listeleri tamamen silmek de mümkündür. Örneğin:
+
+
+
+liste = [1, 5, 3, 2, 9]
+ del liste
+
+
+**********************************************************************************************************************
+
+8-)Listeleri Kopyalamak
+
+Diyelim ki, yazdığınız bir programda, varolan bir listeyi kopyalamak, yani aynı listeden bir tane daha üretmek istiyorsunuz. 
+Mesela elimizde şöyle bir liste olsun:
+
+
+
+ li1 = ["elma", "armut", "erik"]
+
+
+ li2 = li1
+
+
+
+
+
+
+
+
+
+
+
+
+

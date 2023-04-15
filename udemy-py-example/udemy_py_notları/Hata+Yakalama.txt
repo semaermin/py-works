@@ -1,0 +1,289 @@
+		
+		--Hata Yakalama--
+
+
+Şimdiye kadar yazdığımız programın kullanıcı tarafından nasıl kullanılmasını istiyorsak, 
+her zaman o şekilde kullanılacağını varsayıyoruz.Halbuki bazen kullanıcılar da hata yapabilir.
+
+
+
+veri1 = input("Karekökünü hesaplamak istediğiniz sayı: ")
+karekök = int(veri1) ** 0.5
+
+print(veri1, "sayısının karekökü: ", karekök)
+
+veri2 = input("Karesini hesaplamak istediğiniz sayı: ")
+kare = int(veri2) ** 2
+
+print(veri2, "sayısının karesi: ", kare)
+
+
+Örneğin kullanıcı yukarıdaki programa bir sayı yerine, (bilerek veya bilmeyerek) 
+içinde harf barındıran bir veri girerse şuna benzer bir hata alır:
+
+Traceback (most recent call last):
+  File "deneme.py", line 2, in <module>
+    karekök = int(veri1) ** 0.5
+ValueError: invalid literal for int() with base 10: 'fds'
+
+
+
+
+Yazdığınız programların bu tür hatalar vermesi normaldir. 
+Ancak kullanıcı açısından düşündüğümüzde, kullanıcı bu hata 
+mesajını anlamayabilir.Bu yüzden programcı için anlamlı olan bu
+hata mesajını kullanıcı için de anlamlı bir mesaja getirmeliyiz.
+
+
+
+
+
+************************************************************************************
+
+		Hata Türleri
+
+
+
+    1-)Programcı Hataları (Error) 
+    2-)Program Kusurları (Bug)
+    3-)İstisnalar (Exception)
+
+
+Programcıdan kaynaklanan hatalar doğrudan doğruya programı yazan kişinin 
+dikkatsizliğinden ötürü ortaya çıkan bariz hatalardır. Örneğin şu kod bir programcı hatası içerir:
+
+ print "Merhaba Python!"
+
+Bu kodu çalıştırdığınızda şöyle bir hata mesajı görürsünüz:
+
+File "<stdin>", line 1
+   print "Merhaba Python!"
+                         ^
+SyntaxError: invalid syntax
+
+
+Bu hata mesajında bizi ilgilendiren kısım son cümlede yer alıyor: SyntaxError, yani Söz dizimi hatası.
+
+Programcının hataları genellikle SyntaxError şeklinde ortaya çıkar. Bu hatalar çoğunlukla 
+programcı tarafından farkedilir ve program kullanıcıya ulaşmadan önce programcı tarafından düzeltilir.
+
+
+************************************************************************************
+
+2-)Program Kusurları (Bug)
+
+bug‘lar ise çok daha karmaşıktır. Kusurlu programlar çoğu zaman herhangi bir hata vermeden çalışır. 
+Ancak programın ürettiği çıktılar beklediğiniz gibi değildir.
+
+sayı1 = input("Toplama işlemi için ilk sayıyı girin: ")
+sayı2 = input("Toplama işlemi için ikinci sayıyı girin: ")
+
+print(sayı1, "+", sayı2, "=", sayı1 + sayı2)
+
+
+
+
+
+************************************************************************************
+
+3-)İstisnalar (Exception)
+
+
+İstisnalar, adından da az çok anlaşılacağı gibi, bir programın çalışması sırasında ortaya çıkan, 
+normalden farklı, istisnai durumlardır. Örneğin şu programa bakalım:
+
+ilk_sayı = input("ilk sayı: ")
+ikinci_sayı = input("ikinci sayı: ")
+
+ilk_sayı = int(ilk_sayı)
+ikinci_sayı = int(ikinci_sayı)
+
+print(ilk_sayı, "/", ikinci_sayı, "=", ilk_sayı / ikinci_sayı)
+
+
+************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		try... except...
+
+Python’da hata yakalama işlemleri için try... except... bloklarından yararlanılır.
+
+
+
+
+
+
+
+
+try:
+    hata verebileceğini bildiğimiz kodlar
+except HataAdı:
+    hata durumunda yapılacak işlem
+
+
+
+
+
+
+
+
+
+
+
+
+
+ilk_sayı    = input("ilk sayı: ")
+ikinci_sayı = input("ikinci sayı: ")
+
+try:
+    sayı1 = int(ilk_sayı)
+    sayı2 = int(ikinci_sayı)
+    print(sayı1, "/", sayı2, "=", sayı1 / sayı2)
+except ValueError:
+    print("Lütfen sadece sayı girin!")
+
+
+
+
+
+
+
+
+bildiğimiz gibi, veri dönüştürme işlemi sırasında kullanıcının uygun olmayan 
+bir veri girmesi halinde üretilecek hata bir ValueError‘dır. Dolayısıyla except 
+bloğu içine yazacağımız hata türünün adı da ValueError olacaktır. O yüzden ValueError 
+adlı hatayı yakalayabilmek için şu satırları yazdık:
+
+except ValueError:
+    print("Lütfen sadece sayı girin!")
+
+
+
+
+
+
+
+
+
+
+ilk_sayı    = input("ilk sayı: ")
+ikinci_sayı = input("ikinci sayı: ")
+
+try:
+    sayı1 = int(ilk_sayı)
+    sayı2 = int(ikinci_sayı)
+    print(sayı1, "/", sayı2, "=", sayı1 / sayı2)
+except ZeroDivisionError:
+    print("Bir sayıyı 0'a bölemezsiniz!")
+
+
+
+
+
+
+
+Eğer kullanıcı sayı değerli veri yerine harf değerli bir 
+veri girerse ValueError, eğer bir sayıyı 0‘a bölmeye çalışırsa da 
+ZeroDivisionError hatası alıyoruz. Peki aynı kodlarda iki farklı hata türünü nasıl yakalayacağız?
+
+
+
+ilk_sayı    = input("ilk sayı: ")
+ikinci_sayı = input("ikinci sayı: ")
+
+try:
+    sayı1 = int(ilk_sayı)
+    sayı2 = int(ikinci_sayı)
+    print(sayı1, "/", sayı2, "=", sayı1 / sayı2)
+except ZeroDivisionError:
+    print("Bir sayıyı 0'a bölemezsiniz!")
+except ValueError:
+    print("Lütfen sadece sayı girin!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ilk_sayı    = input("ilk sayı: ")
+ikinci_sayı = input("ikinci sayı: ")
+
+try:
+    sayı1 = int(ilk_sayı)
+    sayı2 = int(ikinci_sayı)
+    print(sayı1, "/", sayı2, "=", sayı1 / sayı2)
+except (ValueError, ZeroDivisionError):
+    print("Bir hata oluştu!")
+
+
+
+************************************************************************************
+
+		Bütün Hataları Yakalamak
+
+
+
+try:
+    birtakım kodlar
+except ValueError:
+    print("Yanlış değer")
+except ZeroDivisionError:
+    print("Sıfıra bölme hatası")
+except:
+    print("Beklenmeyen bir hata oluştu!")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

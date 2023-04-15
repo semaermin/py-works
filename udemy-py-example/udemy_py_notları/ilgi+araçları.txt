@@ -1,0 +1,281 @@
+		
+
+		İlgili Araçlar
+
+Döngülerle işe yarar kodlar yazabilmemiz için bazı araçlara ihtiyacımız var. 
+İşte bu bölümde döngüleri daha verimli kullanmamızı sağlayacak bazı fonksiyon 
+ve deyimlerden söz edeceğiz
+
+1-)range Fonksiyonu
+2-)pass Deyimi
+3-)break Deyimi
+4-)continue Deyimi
+5-)else Deyimi
+
+
+**************************************************************************************************************
+1-)range Fonksiyonu ;
+
+range kelimesi İngilizcede ‘aralık’ anlamına gelir. Biz Python’da range() fonksiyonunu belli bir aralıkta 
+bulunan sayıları göstermek için kullanıyoruz. 
+
+
+for i in range(0, 10):
+	print(i)
+
+
+
+
+
+Eğer range() fonksiyonunun ilk parametresi 0 olacaksa, bu parametreyi belirtmesek de olur
+
+ for i in range(10):
+	print(i)
+
+
+
+
+
+
+
+while True:
+    parola = input("parola belirleyin: ")
+
+    if not parola:
+        print("parola bölümü boş geçilemez!")
+
+    elif len(parola) in range(3, 8): #eğer parolanın uzunluğu 3 ile 8 karakter
+        #aralığında ise...
+        print("Yeni parolanız", parola)
+        break
+
+    else:
+        print("parola 8 karakterden uzun 3 karakterden kısa olmamalı")
+
+
+
+
+
+
+
+
+
+
+
+
+for i in range(3):
+    parola = input("parola belirleyin: ")
+    if not parola:
+        print("parola bölümü boş geçilemez!")
+
+    elif len(parola) in range(3, 8):
+        print("Yeni parolanız", parola)
+        break
+
+    elif i == 2:
+        print("parolayı 3 kez yanlış girdiniz.",
+        "Lütfen 30 dakika sonra tekrar deneyin!")
+
+    else:
+        print("parola 8 karakterden uzun 3 karakterden kısa olmamalı")
+
+
+
+
+
+
+range() fonksiyonu iki parametre alıyor. Ama aslında bu fonksiyonun üçüncü bir parametresi daha vardır.
+
+-> range(ilk_sayı, son_sayı, atlama_değeri)
+
+
+
+for i in range(0, 10, 2):
+	print(i)
+
+
+
+
+Gördüğünüz gibi, range() fonksiyonunu kullanarak belirli bir aralıktaki sayıları alabiliyoruz. Peki bu sayıları tersten alabilir miyiz? 
+
+ for i in range(10, 0, -1):
+     print(i)
+
+
+
+ for i in range(10, 0, -3):
+     print(i)
+
+
+
+
+
+
+**************************************************************************************************************
+
+2-)pass Deyimi ;
+
+pass kelimesi İngilizcede ‘geçmek, pas geçmek’ gibi anlamlara gelir.  Biz bu deyimi Pyhon’da ‘görmezden gel, 
+hiçbir şey yapma’ anlamında kullanacağız.
+
+
+
+
+while True:
+    parola = input("parola belirleyin: ")
+
+    if not parola:
+	#print("parola bölümü boş geçilemez!")
+        pass
+
+    elif len(parola) in range(3, 8): #eğer parolanın uzunluğu 3 ile 8 karakter
+        #aralığında ise...
+        print("Yeni parolanız", parola)
+        break
+
+    else:
+        print("parola 8 karakterden uzun 3 karakterden kısa olmamalı")
+
+
+
+
+
+
+
+
+
+
+while True:
+    sayı = int(input("Bir sayı girin: "))
+
+    if sayı == 0:
+        break
+
+    elif sayı < 0:
+        pass
+
+    else:
+        print(sayı)
+
+
+
+
+**************************************************************************************************************
+
+3-)break Deyimi ;
+
+Python’da break özel bir deyimdir. Bu deyim yardımıyla, devam eden bir süreci kesintiye uğratabiliriz.
+
+
+while True:
+     parola = input("Lütfen bir parola belirleyiniz:")
+     if len(parola) < 5:
+         print("Parola 5 karakterden az olmamalı!")
+     else:
+         print("Parolanız belirlendi!")
+         break
+
+
+Gördüğünüz gibi, break ifadesinin temel görevi bir döngüyü sona erdirmek. Buradan anlayacağımız gibi, 
+break ifadesinin her zaman bir döngü içinde yer alması gerekiyor. Aksi halde Python bize şöyle bir hata verecektir:
+
+SyntaxError: 'break' outside loop
+
+
+
+
+**************************************************************************************************************
+
+4-)continue Deyimi ;
+
+continue ilginç bir deyimdir. İsterseniz continue deyimini anlatmaya çalışmak yerine bununla ilgili bir örnek verelim:
+
+
+
+while True:
+    s = input("Bir sayı girin: ")
+    if s == "iptal":
+        break
+
+    if len(s) <= 3:
+        continue
+
+    print("En fazla üç haneli bir sayı girebilirsiniz.")
+
+
+
+Eğer kullanıcı tarafından girilen sayı üç haneli veya daha az haneli bir sayı ise, continue ifadesinin etkisiyle:
+Bu satır ; print("En fazla üç haneli bir sayı girebilirsiniz.") es geçecek ve döngünün en başına gidecek.
+
+
+
+Dolayısıyla buradan anladığımıza göre, continue deyiminin görevi kendisinden sonra gelen her şeyin es geçilip döngünün 
+başına dönülmesini sağlamaktır. 
+
+
+
+
+**************************************************************************************************************
+5-)else Deyimi ;
+
+Biz else deyimini koşullu durumlarda da görmüştük, ancak else deyimi döngüler ile de kullanılabilmektedir. 
+Tabii döngüler ile kullanıldığında farklı bir işi üstlenmektedir.
+else deyimi döngüler ile birlikte kullanılırken break deyimi ile birlikte bir anlam kazanır
+
+
+for i in range(5):
+        print(i)
+else:
+        print("else çalıştı.")
+
+
+
+
+
+
+
+karater_dizisi = "Merhaba Dünya"
+for harf in karater_dizisi:
+        if harf == 'a':
+                print("a harfi bulundu.")
+
+
+
+karater_dizisi = "Merhaba Dünya"
+for harf in karater_dizisi:
+        if harf == 'a':
+                print("a harfi bulundu.")
+                break
+
+
+
+
+
+
+
+
+karater_dizisi = "Bu yAzıdA küçük A yok."
+for harf in karater_dizisi:
+        if harf == 'a':
+                print("a harfi bulundu.")
+                break
+else:
+        print("a harfi bulunmadı.")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

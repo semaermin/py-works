@@ -1,0 +1,228 @@
+			--Temel Dosya İşlemleri--
+
+
+
+Python programlama dilinde dosyalarla uğraşırken bütün dosya işlemleri için temel olarak 
+open() fonksiyondan yararlanacağız.
+
+
+
+
+
+	**Dosya Oluşturmak**
+
+f = open(dosya_adı, kip)	write -> "w"   read -> "r"
+
+
+Mesela “tahsilat.txt” adlı bir dosyayı yazma kipinde açmak için şöyle bir komut kullanıyoruz:
+
+tahsilat_dosyası = open("tahsilat_dosyası.txt", "w")
+
+
+
+
+
+
+	**Dosyaya Yazmak**
+
+
+dosya.write(yazılacak_şeyler)
+
+
+
+ths = open("tahsilat_dosyası.txt", "w")
+
+ths.write("Halil Pazarlama: 120.000 TL")
+
+
+Ayrıca  Herhangi bir şekilde açtığınız dosyaları kapatmanız, özellikle dosyanın açılmasıyla 
+birlikte kullanılmaya başlayan ve arka planda çalışan kaynakların serbest bırakılması açısından 
+büyük önem taşıyor. O yüzden açtığımız dosyaların tamamını programın işleyişi sona erdiğinde kapatmayı unutmuyoruz.
+
+
+ths = open("tahsilat_dosyası.txt", "w")
+ths.write("Halil Pazarlama: 120.000 TL"),
+ths.close()
+
+
+
+
+
+	**Dosya Okumak**
+
+Bildiğiniz gibi, bir dosyayı yazma kipinde açmak için “w” harfini kullanıyoruz. 
+Bir dosyayı okuma kipinde açmak için ise “r” harfini kullanacağız.
+
+fihrist = open("fihrist.txt", "r")
+
+
+-> “w” kipiyle açtığımız bir dosyaya yazmak için write() adlı bir metottan yararlandık.
+
+-> “r” kipiyle açtığımız bir dosyayı okumak için ise read(), readline() ve readlines() adlı 
+üç farklı metottan yararlanacağız.
+
+
+
+fihrist = open("fihrist.txt")
+print(fihrist.read())
+
+
+
+
+fihrist = open("fihrist.txt")
+print(fihrist.readline())
+
+
+
+
+fihrist = open("fihrist.txt")
+print(fihrist.readlines())
+
+
+
+		**Dosyaları Otomatik Kapatma**
+
+Daha önce de söylediğim gibi, bir dosyayı açıp bu dosya üzerinde gerekli işlemleri yaptıktan sonra 
+bu dosyayı açık bırakmamak büyük önem taşır. 
+
+Eğer dosyayı açık bırakırsak, sistem kaynaklarını gereksiz yere meşgul etmiş oluruz.
+
+Ancak programınızdaki bir hata da dosyaların kapanmasını engelleyebilir.
+
+
+
+try:
+    dosya = open("dosyaadı", "r")
+    ...burada dosyayla bazı işlemler yapıyoruz...
+    ...ve ansızın bir hata oluşuyor...
+except IOError:
+    print("bir hata oluştu!")
+finally:
+    dosya.close()
+
+------------------------------------------------------------------------------------------------------------------------
+
+			-Dosyalarda Değişiklik Yapmak-
+
+
+Python’da bir dosyayı açarken, o dosyayı hangi kipte açacağımızı belirtmemiz gerekiyor. 
+Yani eğer bir dosyayı okumak istiyorsak dosyayı “r” kipinde, yazmak istiyorsak da “w” kipinde açmamız 
+gerekiyor. “w” kipi dosya içeriğini tamamen siliyor.
+
+
+Eğer bir dosyayı tamamen silmeden, o dosyaya ekleme yapmak veya o dosyada herhangi bir değişiklik yapmak istiyorsak,
+“a” adlı bir kipten yararlanırız.
+
+f = open(dosya_adı, "a")
+
+
+with open("tahsilat_dosyası.txt", "a") as f:
+    f.write("Selin Ozden: 255 TL \n")
+
+
+
+
+
+
+
+-Dosyaların Başında Değişiklik Yapmak-
+
+
+
+with open("fihrist.txt", "r") as f:
+    veri = f.read()
+    f.seek(0) #Dosyayı başa sarıyoruz
+    f.write("Sedat Köz\t: 0322 234 45 45\n"+veri)
+
+->Hata alırız. Sebebi kip hatası
+
+
+
+with open("tahsilat_dosyası.txt", "r+") as f:
+    veri = f.read()
+    f.seek(0) #Dosyayı başa sarıyoruz
+    f.write("Sedat Koz\t: 445 TL \n"+veri)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--Dosyaların Ortasında Değişiklik Yapmak--
+
+
+with open("tahsilat_dosyası.txt", "r+") as f:
+    veri = f.readlines()
+    veri.insert(2, "Bugra borc 785 TL \n")
+    f.seek(0)
+    f.writelines(veri)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

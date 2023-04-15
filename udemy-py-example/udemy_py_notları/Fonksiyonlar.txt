@@ -1,0 +1,76 @@
+				--Fonksiyonlar--
+
+
+	Fonksiyon Nedir ve Ne İşe Yarar?
+
+
+Biz şimdiye dek karşılaştığımız print(), len(), type() ve open() gibi örnekler 
+sayesinde ‘fonksiyon’ denen şeyi az çok tanıdığımızı söyleyebiliriz.
+
+
+->Fonksiyonların görevi, karmaşık işlemleri bir araya toplayarak, 
+bu işlemleri tek adımda yapmamızı sağlamaktır
+
+
+->Kendi len() fonksiyonumuzu yazalım.
+
+
+*************************************************************************************************
+
+	-return Deyimi-
+
+Bu bölümde return adlı bir deyimden söz edeceğiz. Özellikle Python programlama 
+dilini öğrenmeye yeni başlayanlar bu deyimin ne işe yaradığını anlamakta zorlanabiliyor.
+
+
+
+
+
+*************************************************************************************************
+
+Özyinelemeli (Recursive) Fonksiyonlar
+
+
+
+Recursive fonksiyonlar, tanımlarında kendi kendini tekrar kullanan fonksiyonlardır
+Bu fonksiyonlar, zor ve uzun problemleri daha kolay hallerine dönüştürerek adım adım 
+çözmeyi sağlar. 
+-> Mesela faktoriyel fonksiyonunu recursive olarak tanımlayalım:
+-> Fibonacci sayılarını recursive olarak tanımlayalım.
+ 
+
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

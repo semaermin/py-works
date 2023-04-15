@@ -1,0 +1,128 @@
+		Koşullu Durumlar
+
+
+Artık Python programlama dilinde belli bir noktaya geldik sayılır. 
+Ama eğer farkettiyseniz, yine de elimizi kolumuzu bağlayan, istediğimiz 
+şeyleri yapmamıza engel olan bir şeyler var. İşte bu bölümde, bu engelleri 
+aşacağız.
+
+----------------------------------------------------------------------------
+Örnek ;
+
+Şimdi öyle bir program yazalım ki kulanıcıdan yaşını sorsun ve eğer kullanıcının yaşı 
+15 den büyükse işleme devam edebilsin değilse programı sonlandırsın.
+
+----------------------------------------------------------------------------
+
+Python programlama dilinde koşullu durumları belirtmek için üç adet deyimden yararlanıyoruz:
+-İF
+-ELİF
+-ELSE
+
+
+İngilizce bir kelime olan ‘if‘, Türkçede ‘eğer’ anlamına gelir.
+
+yaş=input(yaşınız:)
+
+
+if(int(yaş)> 15):
+	print("programa devam edebilirsiniz.")
+
+----------------------------------------------------------------------------
+
+Python’da, if deyimleriyle birlikte kullanılan ve yine koşul belirten bir 
+başka deyim de elif deyimidir. Buna şöyle bir örnek verebiliriz:
+
+yaş = int(input("Yaşınız: "))
+
+if yaş == 18:
+    print("18 iyidir!")
+
+elif yaş < 0:
+    print("Yok canım, daha neler!...")
+
+elif yaş < 18:
+    print("Genç bir kardeşimizsin!")
+
+elif yaş > 18:
+    print("Eh, artık yaş yavaş yavaş yaşlanıyorsun!")
+
+
+
+Elif deyiminin kullanımı da bu şekilde peki neden elif deyimi var biz bunları 
+if ile de yapamaz mıyız diye bir soru sorsaydınız tam yerinde bir soru olurdu
+Hemen bunu açıklamaya çalışıyım.
+----------------------------------------------------------------------------
+
+eğer kullanıcı eksi değerli bir sayı girerse hem if yaş < 0 bloğu, hem de if yaş < 18 bloğu çalışacaktır. 
+İsterseniz programı çalıştırıp, cevap olarak eksi değerli bir sayı verelim
+
+
+
+Bu durum if ile elif arasındaki çok önemli bir farktan kaynaklanır. Buna göre if bize olası bütün sonuçları 
+listeler, elif ise sadece doğru olan ilk sonucu verir
+
+
+
+----------------------------------------------------------------------------
+
+koşul deyimlerinin sonuncusu olan else deyimini görelim
+
+
+soru = input("Bir meyve adı söyleyin bana:")
+
+if soru == "elma":
+    print("evet, elma bir meyvedir...")
+
+elif soru == "karpuz":
+    print("evet, karpuz bir meyvedir...")
+
+elif soru == "armut":
+    print("evet, armut bir meyvedir...")
+
+else:
+    print(soru, "gerçekten bir meyve midir?")
+
+
+----------------------------------------------------------------------------
+
+	 -PROGRAMLAMA EGSERSİZİ-
+
+Diyelim ki sisteme kayıt için kullanıcı adı ve parola belirlenmesini isteyen bir program yazıyorsunuz. 
+Yazacağınız bu programda, belirlenebilecek kullanıcı adı ve parolanın toplam uzunluğu 30 karakteri geçmeyecek.
+
+ve ekrana;
+mesaj = "Kullanıcı adı ve parolanız toplam {} karakterden oluşuyor!"
+şeklinde bir yazı yazdıracak.
+Daha sonra eğer 30 karakterden küçük ise sisteme giriş için kullanıcıdan tekrardan
+Kullanıcı adı ve parolayı girmesini isteyecek
+ve doğru girerse ekrana
+tebrikler yazdırsın
+yanlış girerse de Kullanıcı adı veya parola hatalı yazdırsın.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
